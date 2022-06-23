@@ -39,13 +39,17 @@ print('No of Actors that have played Batman: ', batman_actor.nunique())
 actor_data = pd.read_csv("BatmanBoxOffice.csv")
 batman_actor = actor_data['Batman_Actor']
 print('Batman Actor Data: ')
-occur = data.groupby(['Batman_Actor']).size()
-print(occur)
+occur = actor_data.groupby(['Batman_Actor']).size()
+print(occur.to_string())
 
 # Batman Actors by Box Office Appearance in Ascending Order
 Asc_Appearances = occur.sort_values()
-print('No of Appearances as Batman (Asc): ', Asc_Appearances)
+print('No of Appearances as Batman (Asc): ', Asc_Appearances.to_string())
 
 # Batman Actors by Box Office Appearance in Descending
 Desc_Appearances = occur.sort_values(ascending=False)
-print('No of Appearances as Batman (Decs): ', Desc_Appearances)
+print('No of Appearances as Batman (Decs): ', Desc_Appearances.to_string())
+
+# Most appearances by a Batman actor 
+most = actor_data['Batman_Actor'].mode()
+print(most.to_string(index=False), occur.max())
