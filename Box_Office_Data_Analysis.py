@@ -2,35 +2,33 @@ import pandas as pd
 
 # Box Office Data Analysis
 
-# Collect all of the worldwide gross income from each film into a list (using pandas)
-data = pd.read_csv("BatmanBoxOffice.csv")
-Title = data['Title'].tolist()
-Gross = data['Worldwide_Gross'].tolist()
+# Collect all worldwide gross income from each film into a list (using pandas)
+box_office_data = pd.read_csv("BatmanBoxOffice.csv")
+title = box_office_data['Title'].tolist()
+gross = box_office_data['Worldwide_Gross'].tolist()
 print('Films by Gross Worldwide Income USD ($)')
-print('Title:', Title)
-print('Gross Worldwide:', Gross)
+print('Title:', title)
+print('Gross Worldwide:', gross)
 
 # Output the total sales across all months (using pandas)
-df = pd.read_csv("BatmanBoxOffice.csv")
 print('Total Gross Income for All Batman Films USD ($): ')
-print(df['Worldwide_Gross'].sum())
+print(box_office_data['Worldwide_Gross'].sum())
 
 # Highest and Lowest Grossing Batman Films (using index and min/max)
-df = pd.read_csv("BatmanBoxOffice.csv")
 print('Income statistics for All Batman Films USD ($): ')
 
 print('Lowest grossing USD ($): ')
-i = df['Worldwide_Gross'].idxmin()
-print(df['Title'][i])
-print(df['Worldwide_Gross'].min())
+i = box_office_data['Worldwide_Gross'].idxmin()
+print(box_office_data['Title'][i])
+print(box_office_data['Worldwide_Gross'].min())
 
 print('Highest grossing USD ($): ')
-i = df['Worldwide_Gross'].idxmax()
-print(df['Title'][i])
-print(df['Worldwide_Gross'].max())
+i = box_office_data['Worldwide_Gross'].idxmax()
+print(box_office_data['Title'][i])
+print(box_office_data['Worldwide_Gross'].max())
 
 # Mean Gross Worldwide Income
-print('Mean Worldwide Gross Income USD ($): ', df['Worldwide_Gross'].mean())
+print('Mean Worldwide Gross Income USD ($): ', box_office_data['Worldwide_Gross'].mean())
 
 # Number of Unique Box Office Release Batman Actors
 actor_data = pd.read_csv("BatmanBoxOffice.csv")
